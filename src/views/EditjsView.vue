@@ -3,6 +3,7 @@ import {
   getFirestore, collection, addDoc, updateDoc, doc,
 } from 'firebase/firestore';
 import PdfExport from './PdfexportView.vue';
+import MathJax from '../components/MathJax.vue';
 import app from '../lib/firebase';
 import doEditor from '../plugins/editor';
 import useSessionStore from '../stores/session';
@@ -54,10 +55,12 @@ import { ref, defineProps, onMounted } from 'vue';
       marigin-bottom: 10px;
       border: 1px solid #333333;"
       >
-      <div id="editor"></div>
-    </div>
-  
-      {{ props.document }}
+        <div id="editor"></div>
+      </div>
+
+     {{ props.document }}
+     <MathJax></MathJax>
+     {{ props.document }}
       <PdfExport></PdfExport>
   
       <button class="btn btn-primary pl-5 pr-5" @click="saveDocument">SAVE</button>
