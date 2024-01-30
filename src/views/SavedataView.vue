@@ -13,8 +13,9 @@ const docs = ref([])
 const document = ref({})
 
   async function getdocuments() {
+    console.log(JSON.parse(localStorage.getItem('user')).uid);
     const store = useSessionStore();
-    const q = query(collection(db, 'documents'), where('uid', '==', store.user.uid));
+    const q = query(collection(db, 'documents'), where('uid', '==', JSON.parse(localStorage.getItem('user')).uid));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       docs.value.push(doc.data());

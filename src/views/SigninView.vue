@@ -16,8 +16,8 @@ function login() {
   signInWithEmailAndPassword(auth, email.value, password.value)
     .then((res) => {
       store.login(res.user);
-      console.log(res);
-      window.location.href = '/edit_js';
+      console.log(res.user);
+      // window.location.href = '/edit_js';
       alert(res);
     })
     .catch((e) => {

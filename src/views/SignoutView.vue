@@ -6,6 +6,7 @@ const auth = getAuth(app);
 
 function logout() {
   signOut(auth).then(() => {
+    localStorage.removeItem('user');
     // SIGNIN画面に遷移
     window.location.href = '/sign_in';
   })

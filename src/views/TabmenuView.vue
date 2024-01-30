@@ -3,7 +3,7 @@
 const items = [
   { title: 'トップ', path: '/' },
   { title: 'テキスト', path: '/edit_Js' },
-  { title: 'データ', path: '/savedata' },
+  { title: 'データ', path: '/save_data' },
   { title: 'Pdf化', path: '/pdf_export' },
   { title: 'ログイン', path: '/sign_in' },
   { title: 'ログアウト', path: '/sign_out' },

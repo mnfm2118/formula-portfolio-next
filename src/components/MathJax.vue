@@ -14,12 +14,16 @@ const formula = ref('$$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$');
 
 <template>
   <div>
-    <textarea v-model="formula" />
-    <vue-mathjax :formula="formula" />
+    <textarea id="formula" v-model="formula" />
+    <div id="capture">
+      <vue-mathjax :formula="formula" />
+    </div>
+    
   </div>
 </template>
 
 <script>
+
 export default {
   data() {
     return {

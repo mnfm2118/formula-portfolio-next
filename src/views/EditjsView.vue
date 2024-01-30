@@ -22,11 +22,12 @@ import { ref, defineProps, onMounted } from 'vue';
   const editor = ref(null);
 
   async function saveDocument() {
-    const outputData = await this.editor.save();
+    const outputData = document.getElementById("formula").value;
     ['time', 'version'].forEach((e) => delete outputData[e]);
+    console.log(store.user.value);
     const docRef = await addDoc(collection(db, 'documents'), {
       body: outputData,
-      uid: store.user.value.uid,
+      uid: JSON.parse(localStorage.getItem('user')).uid
     });
     alert(docRef.id);
 

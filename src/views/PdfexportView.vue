@@ -1,12 +1,16 @@
 <script setup>
 import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
   function createPDF() {
-    const doc = new jsPDF();
-    document.getElementById('editor');
-    const text = document.getElementById('editor').innerText;
-    doc.text(text, 10, 10);
-    doc.save('sample.pdf');
+    const source = document.getElementById('capture')
+    html2canvas(source).then(capture => {
+      const imgData = capture.toDataURL('image/png')
+      const doc = new jsPDF()
+      const width = doc.internal.pageSize.width
+      doc.addImage(imgData, 'PNG', 10, 10, width * 0.9, 0)
+      doc.save("sample.pdf")
+    })
   }
 </script>
 
