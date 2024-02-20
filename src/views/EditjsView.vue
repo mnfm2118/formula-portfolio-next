@@ -24,7 +24,6 @@ import { ref, defineProps, onMounted } from 'vue';
   async function saveDocument() {
     const outputData = document.getElementById("formula").value;
     ['time', 'version'].forEach((e) => delete outputData[e]);
-    console.log(store.user.value);
     const docRef = await addDoc(collection(db, 'documents'), {
       body: outputData,
       uid: JSON.parse(localStorage.getItem('user')).uid
@@ -56,12 +55,11 @@ import { ref, defineProps, onMounted } from 'vue';
       marigin-bottom: 10px;
       border: 1px solid #333333;"
       >
-        <div id="editor"></div>
+        <div>
+          <MathJax></MathJax>
+        </div>
       </div>
 
-     {{ props.document }}
-     <MathJax></MathJax>
-     {{ props.document }}
       <PdfExport></PdfExport>
   
       <button class="btn btn-primary pl-5 pr-5" @click="saveDocument">SAVE</button>

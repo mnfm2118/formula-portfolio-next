@@ -7,7 +7,6 @@ import { defineStore } from 'pinia'
   const isLoggedln = ref(false);
 
   function login(data) {
-    console.log(data);
     localStorage.setItem('user', JSON.stringify(data));
     user.value = { ...data };
     isLoggedln.value = true;

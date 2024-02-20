@@ -16,7 +16,6 @@ import Paragraph from '@editorjs/paragraph';
 // }
 
 function doEditor(data) {
-  console.log(data);
   return new EditorJS({
     holder: 'editor',
     data: {

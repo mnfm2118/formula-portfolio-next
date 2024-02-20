@@ -8,7 +8,7 @@ const items = [
   { title: 'ログイン', path: '/sign_in' },
   { title: 'ログアウト', path: '/sign_out' },
   { title: '登録', path: '/sign_up' },
-  { title: 'ヘルプ', path: '/help' },
+  { title: 'ヘルプ', path: '/help_page' },
 ]
 </script>
 
