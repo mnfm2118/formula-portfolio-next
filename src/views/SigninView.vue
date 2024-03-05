@@ -33,7 +33,21 @@ function login() {
       alert('success',res);
     })
     .catch((e) => {
-      alert(e.message);
+      let message = "";
+      switch(e.code) {
+        case "auth/missing-password":
+          message = "パスワードを入力してください";
+          break;
+        case "auth/invalid-credential":
+          message = "メールアドレスまたはパスワードが違います";
+          break;
+        case "auth/invalid-email":
+          message = "メールアドレスが無効です";
+          break;
+        default:
+          message = "エラーが発生しました";
+      }
+      alert(message);
       console.log(e);
     });
 }
