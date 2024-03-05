@@ -33,3 +33,13 @@ npm run build
 ```sh
 npm run lint
 ```
+
+### Deploy to Firebase
+```sh
+firebase deploy
+```
+
+### Stop Deployed App
+```sh
+firebase hosting:disable
+```

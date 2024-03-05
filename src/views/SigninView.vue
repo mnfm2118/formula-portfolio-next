@@ -33,8 +33,8 @@ function login() {
       alert('success',res);
     })
     .catch((e) => {
-      alert('error');
-      console.log('error', e);
+      alert(e.message);
+      console.log(e);
     });
 }
 

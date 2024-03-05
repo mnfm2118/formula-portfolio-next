@@ -34,8 +34,7 @@
     }
   ]
 
-  const form = ref(null);
-
+const form = ref();
   async function registerUser() {
     const validation = await form.value.validate();
     if(validation.valid) {
@@ -45,27 +44,23 @@
         window.location.href = '';
         alert('success', res);
       })
-      .catch(() => {
-        alert('error');
-      });
     } else {
       alert('invalid')
     }
   }
- async function sendEmail() {
-  const result = await emailjs
-        .sendForm('service_dom8so7', 'template_9z9zoko', {email: email.value}, {
+  function sendEmail() {
+   emailjs
+        .send('service_3c4aq2d', 'template_sktnmz9', {email:email.value}, {
           publicKey: 'x8RPL9Ywhkedasal-',
         })
-        .then(
-          () => {
+        .then(() => {
             console.log('SUCCESS!');
-          },
-          (error) => {
+          })
+          .catch((error) => {
             console.log('FAILED...', error.text);
-          },
-        )
+          })
   }
+
   
 </script>
 
@@ -98,6 +93,11 @@
                 :rules="passwordRules"
                 hide-details="auto"
                 required
+                :append-icon="toggle.icon"
+                :type="toggle.type"
+                outlined
+                autocomplete="on"
+                @click:append="show = !show"
               />
             </v-col>
           </v-row>
